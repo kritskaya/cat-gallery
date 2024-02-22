@@ -1,18 +1,21 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { AxiosError } from 'axios';
 import { getCats } from '../api/catsApi';
+import { Cat } from '../api/types';
 
 interface CatsState {
+  currentPageCats: Cat[];
   isPending: boolean;
 }
 
 const initialState: CatsState = {
+  currentPageCats: [],
   isPending: false,
 };
 
 export const getCatsByQuery = createAsyncThunk(
   'cat/getCatsByQuery',
-  async (options: { page: number; limit: number }, { rejectWithValue }) => {
+  async (options: { page: number; limit?: number }, { rejectWithValue }) => {
     try {
       return await getCats(options.page, options.limit);
     } catch (error) {
@@ -38,9 +41,10 @@ export const catsSlice = createSlice({
       state.isPending = false;
     });
 
-    builder.addCase(getCatsByQuery.fulfilled, (state) => {
+    builder.addCase(getCatsByQuery.fulfilled, (state, action) => {
       state.isPending = false;
-    });
+      state.currentPageCats = action.payload;
+    }); 
   },
 });
 

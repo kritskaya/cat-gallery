@@ -1,7 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit';
+import catsSlice from './catsSlice';
 
 const store = configureStore({
-  reducer: {},
+  reducer: {
+    cats: catsSlice,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
