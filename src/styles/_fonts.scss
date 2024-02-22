@@ -1,0 +1,20 @@
+$font-name: 'Montserrat';
+$font-family: $font-name, sans-serif;
+
+@font-face {
+  font-family: $font-name;
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('../assets/fonts/montserrat-v25-latin-700.woff2') format('woff2'),
+      url('../assets/fonts/montserrat-v25-latin-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: $font-name;
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('../assets/fonts/montserrat-v25-latin-700.woff2') format('woff2'),
+      url('../assets/fonts/montserrat-v25-latin-700.woff') format('woff');
+}
