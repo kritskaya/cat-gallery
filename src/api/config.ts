@@ -15,10 +15,10 @@ api.interceptors.response.use(
   (error: AxiosError) => {
     if (error instanceof AxiosError) {
       console.log(error.message);
-      return error.message;
     }
 
     console.log(UNEXPECTED_ERROR, error);
-    return UNEXPECTED_ERROR;
+
+    throw error;
   }
 );

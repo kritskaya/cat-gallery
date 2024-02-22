@@ -21,4 +21,4 @@ type Weight = {
   metric: string;
 };
 
-export type GetCatsResponse = Cat[] | string;
+export type GetCatsResponse = Cat[];
