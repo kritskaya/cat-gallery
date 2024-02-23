@@ -1,0 +1,38 @@
+.pagination {
+  display: flex;
+  padding: 10px;
+  align-self: center;
+  gap: 10px;
+}
+
+.btn {
+  @extend %centered;
+  width: 40px;
+  height: 40px;
+  border: 2px solid $foreground;
+  border-radius: 50%;
+  font-size: 24px;
+  color: $text-color;
+  background-color: $background-darker;
+  cursor: pointer;
+  transition: filter 0.3s ease;
+  
+  &[disabled] {
+    border: 2px solid $btn-disabled-color;
+    color: $btn-disabled-color;
+  }
+
+  &:hover:not([disabled]) {
+    background-color: $background-darker;
+    filter: brightness(0.85);    
+  }
+}
+
+.page {
+  @extend %centered;
+  width: 35px;
+  padding: 0 20px;
+  font-weight: bold;
+  color: $text-color;
+}
+
