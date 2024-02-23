@@ -1,25 +1,21 @@
-import { useEffect } from 'react';
-import { useAppDispatch, useAppSelector } from '../../../redux/hooks';
-import { getCatsByQuery } from '../../../redux/catsSlice';
+import { FC } from 'react';
+import { Cat } from '../../../api/types';
 import styles from './GalleryGrid.module.scss';
 
-export const GalleryGrid = () => {
-  const dispatch = useAppDispatch();
-  const cats = useAppSelector((state) => state.cats.currentPageCats);
+type GalleryProps = {
+  items: Cat[];
+};
 
-  useEffect(() => {
-    dispatch(getCatsByQuery({ page: 0 }));
-  }, []);
-
+export const GalleryGrid: FC<GalleryProps> = ({items}) => {
   return (
     <div className={styles.gallery}>
-      {cats &&
-        cats.map((cat) => (
-          <div className={styles.gallery__card} key={cat.id}>
+      {items &&
+        items.map((item) => (
+          <div className={styles.gallery__card} key={item.id}>
             <img
               className={styles.gallery__image}
-              src={cat.url}
-              alt={"cat image"}
+              src={item.url}
+              alt={'cat image'}
             />
           </div>
         ))}

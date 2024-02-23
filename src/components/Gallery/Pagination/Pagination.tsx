@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import clsx from 'clsx';
 import {
   MdKeyboardArrowLeft,
   MdKeyboardArrowRight,
@@ -20,24 +19,24 @@ export const Pagination: FC<PaginationProps> = ({ page, setPage }) => {
       <button
         type="button"
         className={styles.btn}
-        disabled={page === 1}
-        onClick={() => setPage(1)}
+        disabled={page === 0}
+        onClick={() => setPage(0)}
       >
         <MdKeyboardDoubleArrowLeft />
       </button>
       <button
         type="button"
         className={styles.btn}
-        disabled={page === 1}
+        disabled={page === 0}
         onClick={() => setPage(page - 1)}
       >
         <MdKeyboardArrowLeft />
       </button>
-      <div className={styles.page}>{page}</div>
+      <div className={styles.page}>{page + 1}</div>
       <button
         type="button"
         className={styles.btn}
-        disabled={page === MAX_PAGE}
+        disabled={page === MAX_PAGE - 1}
         onClick={() => setPage(page + 1)}
       >
         <MdKeyboardArrowRight />
@@ -45,8 +44,8 @@ export const Pagination: FC<PaginationProps> = ({ page, setPage }) => {
       <button
         type="button"
         className={styles.btn}
-        disabled={page === MAX_PAGE}
-        onClick={() => setPage(MAX_PAGE)}
+        disabled={page === MAX_PAGE - 1}
+        onClick={() => setPage(MAX_PAGE - 1)}
       >
         <MdKeyboardDoubleArrowRight />
       </button>
