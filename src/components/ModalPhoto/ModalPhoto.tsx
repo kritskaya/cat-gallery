@@ -10,8 +10,19 @@ export const ModalPhoto: FC<ModalPhotoProps> = ({ item }) => {
   return (
     <>
       {item && (
-        <div className={styles.content}>
-          <img className={styles.content__photo} src={item.url} alt="" />
+        <div className={styles.content}>          
+          <img
+            className={styles.content__photo}
+            src={item.url}
+            alt="cat view photo"
+          />
+          <div className={styles.content__description}>
+          {item.breeds.map((breed) => (
+            <p
+              className={styles.content__note}
+            >{`Breed: ${breed.name}, temperament: ${breed.temperament}, origin: ${breed.origin}`}</p>
+          ))}
+          </div>
         </div>
       )}
     </>
