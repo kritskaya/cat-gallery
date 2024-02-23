@@ -62,11 +62,13 @@ export const Pagination: FC<PaginationProps> = ({
             <MdKeyboardDoubleArrowRight />
           </button>
         </div>
+        <div className={styles.pagination__select}>
         <PaginationSelect
           perPage={perPage}
           setPerPage={setPerPage}
           setPage={setPage}
         />
+        </div>
       </div>
     </>
   );

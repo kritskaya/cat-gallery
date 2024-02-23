@@ -19,9 +19,9 @@ export const PaginationSelect: FC<PaginationSelectProps> = ({
   }
 
   return (
-    <div className={styles.wrapper}>
-      <p>На странице:</p>
-      <select className={styles.select} value={perPage} onChange={handleChange}>
+    <div className={styles.block}>
+      <label className={styles.block__label}>На странице:</label>
+      <select className={styles.block__select} value={perPage} onChange={handleChange}>
         <option value="12">12</option>
         <option value="24">24</option>
         <option value="36">36</option>
