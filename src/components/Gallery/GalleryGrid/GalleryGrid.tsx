@@ -43,9 +43,9 @@ export const GalleryGrid: FC<GalleryProps> = ({ items }) => {
           ))}
       </div>
 
-      <Modal modalActive={modalActive} setModalActive={setModalActive}>
-        <ModalPhoto item={currentItem} />
-      </Modal>
+      {/* <Modal modalActive={modalActive} setModalActive={setModalActive}> */}
+        <ModalPhoto modalActive={modalActive} setModalActive={setModalActive} item={currentItem} />
+      {/* </Modal> */}
     </>
   );
 };
