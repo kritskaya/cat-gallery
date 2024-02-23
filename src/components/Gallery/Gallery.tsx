@@ -4,6 +4,7 @@ import { GalleryGrid } from './GalleryGrid';
 import { Pagination } from './Pagination';
 import { useAppDispatch, useAppSelector } from '../../redux/hooks';
 import { getCatsByQuery } from '../../redux/catsSlice';
+import { Spinner } from '../Spinner';
 import styles from './Gallery.module.scss';
 
 export const Gallery = () => {
@@ -11,13 +12,14 @@ export const Gallery = () => {
 
   const dispatch = useAppDispatch();
   const cats = useAppSelector((state) => state.cats.currentPageCats);
+  const isLoading = useAppSelector((state) => state.cats.isPending);
 
   useEffect(() => {
     dispatch(getCatsByQuery({ page }));
   }, [page]);
- 
 
   return (
+    <>
     <main className={styles.main}>
       <Wrapper>
         <div className={styles.main__container}>
@@ -26,5 +28,7 @@ export const Gallery = () => {
         </div>
       </Wrapper>
     </main>
+    {isLoading && <Spinner />}
+    </>
   );
 };
