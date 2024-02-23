@@ -17,7 +17,7 @@ export const Gallery = () => {
 
   useEffect(() => {
     dispatch(getCatsByQuery({ page, limit: perPage }));
-  }, [page, perPage]);
+  }, [page, perPage, dispatch]);
 
   return (
     <>
