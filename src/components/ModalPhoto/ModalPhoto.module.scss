@@ -12,8 +12,9 @@
 }
 
 .content__photo {
+  max-height: 90vh;
   height: 100%;
-  width: 100%;
+  width: 100%;  
   flex-grow: 1;
   object-fit: contain;
 }

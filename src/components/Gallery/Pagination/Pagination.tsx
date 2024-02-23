@@ -63,11 +63,11 @@ export const Pagination: FC<PaginationProps> = ({
           </button>
         </div>
         <div className={styles.pagination__select}>
-        <PaginationSelect
-          perPage={perPage}
-          setPerPage={setPerPage}
-          setPage={setPage}
-        />
+          <PaginationSelect
+            perPage={perPage}
+            setPerPage={setPerPage}
+            setPage={setPage}
+          />
         </div>
       </div>
     </>

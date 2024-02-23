@@ -1,8 +1,9 @@
-import { FC, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Cat } from '../../../api/types';
-import styles from './GalleryGrid.module.scss';
 import { Modal } from '../../Modal';
 import { ModalPhoto } from '../../ModalPhoto';
+import styles from './GalleryGrid.module.scss';
+import { disableScroll, enableScroll } from '../../../utils/scroll';
 
 type GalleryProps = {
   items: Cat[];
@@ -16,6 +17,15 @@ export const GalleryGrid: FC<GalleryProps> = ({ items }) => {
     setModalActive(true);
     setCurrentItem(item);
   };
+
+  useEffect(() => {
+    if(modalActive) {
+      enableScroll();      
+    } 
+    return () => {
+      disableScroll();
+    }
+  }, [modalActive])
 
   return (
     <>
