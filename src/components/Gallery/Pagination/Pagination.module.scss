@@ -1,7 +1,13 @@
 .pagination {
   display: flex;
-  padding: 10px;
+  // padding: 10px;
   align-self: center;
+  gap: 30px;
+}
+
+.pagination__btns {
+  display: flex;
+  padding: 10px;
   gap: 10px;
 }
 
