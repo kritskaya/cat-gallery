@@ -4,21 +4,22 @@
   width: 100%;
   justify-content: center;
   align-self: center;
+  gap: 5px;  
+
+  @media (max-width: $phone) {
+    flex-direction: column;
+  }
 }
 
 .pagination__btns {
-  display: flex;
-  
+  display: flex;  
   padding: 10px;
+  justify-content: center;
   gap: 10px;
-}
 
-.pagination__select {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  display: flex;
-  transform: translateY(-50%);
+  @media (max-width: $tablet) {
+    gap: 5px;
+  }
 }
 
 .btn {
@@ -42,6 +43,25 @@
     background-color: $background-darker;
     filter: brightness(0.85);    
   }
+
+  @media (max-width: $tablet) {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+.pagination__select {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  display: flex;
+  transform: translateY(-50%);
+
+  @media (max-width: $phone) {
+    position: relative;
+    align-self: center;
+    transform: translateY(0);
+  }
 }
 
 .page {
@@ -50,5 +70,10 @@
   padding: 0 20px;
   font-weight: bold;
   color: $text-color;
+
+  @media (max-width: $phone) {
+    padding: 0 10px;
+    font-size: 14px;
+  }
 }
 

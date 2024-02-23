@@ -1,10 +1,14 @@
 .content {
   position: relative;
-  height: 90vh;
+  max-height: 90vh;
   max-width: 90vw;
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+  @media (max-width: $phone) {
+    max-width: 85vw;
+  }
 }
 
 .content__photo {
@@ -24,4 +28,9 @@
   font-size: 14px;
   color: $text-color-light;
   background-color: rgba($foreground, 0.8);
+
+  @media (max-width: $phone) {
+    padding: 5px;
+    font-size: 12px;
+  }
 }

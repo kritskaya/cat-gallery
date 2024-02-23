@@ -5,7 +5,9 @@
 }
 
 .block__label {
-  // font-weight: bold;
+  @media (max-width: $phone) {
+    font-size: 14px;
+  }
 }
 
 .block__select {
@@ -13,9 +15,15 @@
   padding: 5px 5px;
   border: 2px solid $foreground;
   border-radius: 4px;
+  font-family: inherit;
   font-size: inherit;
   font-weight: bold;
   color: $text-color;
   background-color: transparent;
+
+  @media (max-width: $phone) {
+    padding: 3px 2px;
+    font-size: 14px;
+  }
 }
 
