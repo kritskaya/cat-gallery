@@ -13,21 +13,16 @@ export const Modal: FC<ModalProps> = ({
   setModalActive,
   children,
 }) => {
-
-
   return (
     <div
-      className={
-        clsx(styles.modal, modalActive && styles.active)
-      }
+      className={clsx(styles.modal, modalActive && styles.active)}
       onClick={() => setModalActive(!modalActive)}
     >
       <div
-        className={
-          modalActive
-            ? styles.modalContent + ' ' + styles.modalContentActive
-            : styles.modalContent
-        }
+        className={clsx(
+          styles.modalContent,
+          modalActive && styles.modalContentActive
+        )}
         onClick={(e) => e.stopPropagation()}
       >
         {children}

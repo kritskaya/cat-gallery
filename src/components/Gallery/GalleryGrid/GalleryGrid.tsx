@@ -2,6 +2,7 @@ import { FC, useState } from 'react';
 import { Cat } from '../../../api/types';
 import styles from './GalleryGrid.module.scss';
 import { Modal } from '../../Modal';
+import { ModalPhoto } from '../../ModalPhoto';
 
 type GalleryProps = {
   items: Cat[];
@@ -9,6 +10,12 @@ type GalleryProps = {
 
 export const GalleryGrid: FC<GalleryProps> = ({ items }) => {
   const [modalActive, setModalActive] = useState(false);
+  const [currentItem, setCurrentItem] = useState<Cat | null>(null);
+
+  const handlePhotoClick = (item: Cat) => {
+    setModalActive(true);
+    setCurrentItem(item);
+  };
 
   return (
     <>
@@ -20,16 +27,15 @@ export const GalleryGrid: FC<GalleryProps> = ({ items }) => {
                 className={styles.gallery__image}
                 src={item.url}
                 alt={'cat image'}
-                onClick={() => setModalActive(true)}
+                onClick={() => handlePhotoClick(item)}
               />
             </div>
           ))}
       </div>
-      {modalActive && (
-        <Modal modalActive={modalActive} setModalActive={setModalActive}>
-          Modal
-        </Modal>
-      )}
+
+      <Modal modalActive={modalActive} setModalActive={setModalActive}>
+        <ModalPhoto item={currentItem} />
+      </Modal>
     </>
   );
 };
